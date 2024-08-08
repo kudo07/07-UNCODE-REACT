@@ -19,6 +19,11 @@ import ArrayStateExample from './components/2-MAIN/25-CHALLENGES/4-TASK/ArraySta
 import ImmerExample from './components/2-MAIN/25-CHALLENGES/5-TASK/ImmerExample';
 import One from './components/2-MAIN/25-CHALLENGES/6-TASK/One';
 import DeepNested from './components/2-MAIN/25-CHALLENGES/TASK-7/DeepNested';
+import DataFetchingComponent from './components/2-MAIN/25-CHALLENGES/TASK-8/DataFetchingComponent';
+import NestedeObject from './components/2-MAIN/25-CHALLENGES/TASK-9/NestedeObject';
+import ArraySort from './components/2-MAIN/25-CHALLENGES/TASK-10/ArraySort';
+import ImmutableSort from './components/2-MAIN/25-CHALLENGES/TASK-11/ImmutableSort';
+import ImmutableNested from './components/2-MAIN/25-CHALLENGES/TASK-12/ImmutableNested';
 
 function App() {
   // challenge-1 return <Badge />;
@@ -36,12 +41,18 @@ function App() {
   // challenge 19-17 return <Password />;
   // challenge 19-17 return <FormMultiple />;
   // 1-main/25-challenge/1-TASK/taskONe.jsx return <TaskOne />;
-  //  2-main/25-challenge/2-TASK/UseReducerr.jsx return <UseReducerr />;
+  // 2-main/25-challenge/2-TASK/UseReducerr.jsx return <UseReducerr />;
   // 3-main/25-challenge/3-TASK/NestedExample.jsx return <NestedExample />;
   // 4-main/25-challenge/4-TASK/ArrayStateExample.jsx return <ArrayStateExample />;
   // 5-main/25-challenge/5-TASK/.ImmerExamplejsx  return <ImmerExample />;
-  // 6-main/25-challenge/5-TASK/.One.jsx return <One />;
-  return <DeepNested />;
+  // 6-main/25-challenge/6-TASK/.One.jsx return <One />;
+  // 7-main/25-challenge/7-TASK/.DeepNested return <DeepNested />;;
+  // 8-main/25-challenge/8-TASK/DataFetchingComponent.jsx return <DataFetchingComponent />;
+  // 9-main/25-challenge/9-TASK/.NestedObject  return <NestedeObject />;
+  // 10-main/25-challenge/10-TASK/.ArraySort return <ArraySort />;
+  // 11-main/25-challenge/11-TASK/.ImmutableSort  return <ImmutableSort />;
+  return <ImmutableNested />;
+  // 5-main/25-challenge/5-TASK/.ImmerExamplejsx  return <ImmerExample />;
   // 5-main/25-challenge/5-TASK/.ImmerExamplejsx  return <ImmerExample />;
   // 5-main/25-challenge/5-TASK/.ImmerExamplejsx  return <ImmerExample />;
   // 5-main/25-challenge/5-TASK/.ImmerExamplejsx  return <ImmerExample />;
