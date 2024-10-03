@@ -1,0 +1,42 @@
+// IF THE STATE DEPENDS OTHER THAN THE VALUE IT RECIEVES
+// FUNCTION==> A PROCESS WHICH TAKES SOME INPUT AN ARGUMANET, AND CALCULATES SOME OUTPUT ,RETURN A VALUE
+// OTHER THAN THIS IT IS AN SIDE EFFECTS
+
+// FUNCTION ADDTODO(TODO){
+//     TODOS.PUSH(TODO)
+// }
+// IT IS AN SIDEEFFECT
+// CREATE THE OBSERVABLE CHANGE IN THE PROGRAM
+
+// 2.
+// FUNCTION GETGITHUBPROFILE(USERNAME){
+//     RETURN FETCH(
+//         `HTTPS://API.GITHUB.COM/USERS/${USERNAME}`
+//     ).THEN((RES)=>RES.JSON())
+// }
+// THIS IS AN SIDE EFFECT ALSO AS IT DEPENDS ON THE STATE WHICH IS NOT RECVIEVES
+// THIS IS AN SIDEEFFECT
+// 3.
+//
+// WE ARE NOT RELYING OTHER THAN THE INPUT STATE BUT IT HAS AN OBSERVABLE CHANGE "="\
+// function update(title) {
+//   document.title = title;
+// }
+
+// this is also a side effect
+// side effects ===bad //false
+// because it relying the state out of the context
+// when the state of the application change they behave differently
+
+// 4.
+// function calculate(price,qty){
+//     const total=price*qty
+//     return total*(1+tax_rate)
+// }
+// tax_rate deleted the function behaves differently
+// side effects and inconsistent outputs
+// whether through relying on start other than the input calue it receives or creating an observable cahnge to the program
+// itself its said to have a side effect
+// if a function doesnt have a return value its unpredictable
+// we can assume the function is either doiung nothing unlikelu or it has a side effect [breaking rule number 1]
+// if a function give the same input doesnt consistently return the same output its also unpredicatable
