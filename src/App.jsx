@@ -1,5 +1,7 @@
+import AppModal from './components/7-PROPS/AppModal';
+
 function App() {
-  return <h1>hello</h1>;
+  return <AppModal />;
 }
 
 export default App;

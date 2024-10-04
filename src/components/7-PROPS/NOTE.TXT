@@ -1,0 +1,189 @@
+function getProfilePic(username) {
+  return "https://photo.fb.com/" + username
+}
+
+function getProfileLink(username) {
+  return "https://www.fb.com/" + username
+}
+
+function getAvatarInfo(username) {
+  return {
+    pic: getProfilePic(username),
+    link: getProfileLink(username),
+  }
+}
+
+getAvatarInfo("tylermcginnis")
+
+PROPS ARE TO COMPONENTS WHAT ARGUMENTS ARE TO FUNCTIONS
+
+THE SAME INTUITION YOU HAVE ABOUT FUNCTIONS AND PASSSING ARGUMENTS TO FUNCTIONS CAN BE DIRECTLU APPLIED TO COMPONENETS AND PSSING PROPS TO COMPONENETS
+THERE ARE TWO PARTS TO UNDERSTANDING HOW PROPS WORK
+
+1. HOW TO PASS DATA INTO COMPONENTS 
+2. ACCESSING THE DATA ONCE ITS HAS BEEN PASSED IN 
+
+PASSING DATA TO A COMPONENETS
+
+THIS ONE SHOULD FEEL NATURAL BECAUSE YOU'VE BEEN DOING SOMETHING SIMILAR EVER SINCE YOU LEARNED HTML YOU PASS DATA TO A REACT COMPONENT THE SAME WAY 
+YOU'D SET AN ATTRIBUTE ON AN HTML ELELMENT
+
+<img src='' />
+
+<Hello name='Tyler' />
+<Profile
+  username="tylermcginnis"
+  authed={true}
+  logout={handleLogout}
+  header={<h1>👋</h1>}
+/>
+
+WE'RE PASSING IN INSIDE OF CURLY BRACES, {} CAN YOU SPOT WHY THAT IS?
+ANY TIME YOU'RE PASSING A PROP THAT ISNT STRING YOU MUST WRAP INSIDE OD A CURLY BRACXE THE REASON FOR THAT IS CURLY BRACES GIVE YOU A 'WINDOW INTO THE JS WORLD" THAT IS THEY ALLOW YOU TO USE JS INSIDE OG YOU MARKUP
+
+<DatePicker settings={{
+  format: "yy-mm-dd",
+  animate: false,
+  days: "abbreviate"
+}} />
+
+NOTICE WE USE TWO SETS OF CURLY BRACES, {{}} WE HAVE AN OBJECT WHICH WE WANT TO PASS AS A PROP AND SINCE ITS NOT A STRING WE WRAP IT IN ANOTHER SET OF CURLY BRACES GETTING {{}}
+
+Course Progress
+11%
+My Profile
+Dashboard
+Next Lesson
+Props
+react.gg
+Props
+
+0:00 / 3:07
+
+1x
+
+Auto
+
+Whenever you have a system that is reliant upon composition, it's critical that each piece of that system has an interface for accepting data from outside of itself. You can see this clearly illustrated by looking at something you're already familiar with, functions.
+
+function getProfilePic(username) {
+  return "https://photo.fb.com/" + username
+}
+
+function getProfileLink(username) {
+  return "https://www.fb.com/" + username
+}
+
+function getAvatarInfo(username) {
+  return {
+    pic: getProfilePic(username),
+    link: getProfileLink(username),
+  }
+}
+
+getAvatarInfo("tylermcginnis")
+Without the ability to pass data, in this case username, to each of our of functions, our composition would break down.
+
+Similarly, because React relies heavily on composition, there needs to exist a way to pass data into components. This brings us to our next important React concept, props.
+
+What are props?
+Props are to components what arguments are to functions.
+
+Pass props
+The same intuition you have about functions and passing arguments to functions can be directly applied to components and passing props to components.
+
+There are two parts to understanding how props work.
+
+1. How to pass data into components
+2. Accessing the data once it's been passed in
+Passing data to a component
+This one should feel natural because you've been doing something similar ever since you learned HTML. You pass data to a React component the same way you'd set an attribute on an HTML element.
+
+<img src='' />
+
+<Hello name='Tyler' />
+In this example, we're passing in a name prop to the Hello component.
+
+It's important to note that we're not limited to just passing strings as props. Just like we can pass functions or any other value as arguments, so too can we pass any value as props.
+
+<Profile
+  username="tylermcginnis"
+  authed={true}
+  logout={handleLogout}
+  header={<h1>👋</h1>}
+/>
+One thing you may have noticed is that sometimes we have to wrap what we're passing in inside of curly braces, {}. Can you spot why that is?
+
+The easy to remember rule is that any time you're passing a prop that isn't a string, you must wrap it inside of a curly brace. The reason for that is curly braces give you a "window into the JavaScript world" – that is they allow you to use JavaScript inside of your markup.
+
+Following that rule, though this looks a little weird, you can even pass object literals to components as props.
+
+<DatePicker settings={{
+  format: "yy-mm-dd",
+  animate: false,
+  days: "abbreviate"
+}} />
+Notice we use two sets of curly braces, {{}}. If you think about it, that makes sense. We have an object {} which we want to pass as a prop, and since it's not a string, we wrap it in another set of curly braces, getting {{}}.
+
+💎
+Boolean Shortcut
+One thing to note is that if you pass a prop without a value, that value will be set to true. These are equivalent.
+
+<Profile authed={true} />
+<Profile authed />
+Accessing props
+Now that we know how to pass props to components, the next question is how do you get access to those props from inside of the component?function Hello (props) {
+  return <h1>Hello, {props.name}</h1>
+}
+
+export default function App () {
+  return <Hello name='Tyler' />
+}
+function Hello (props) {
+  return (
+    <h1>
+      Hello, {props.first} {props.last}
+    </h1>
+  )
+}
+
+export default function App () {
+  return <Hello first="Tyler" last="McGinnis" />
+}
+function Hello ({ first, last }) {
+  return (
+    <h1>
+      Hello, {first} {last}
+    </h1>
+  )
+}
+PROPS IS JUST AN OBJECT YOU CAN ALSO DESTRUCTURE IT
+So at this point, you should be comfortable with props. As you've seen, props are how you pass data into components. You pass data to components just like you'd set attributes on regular HTML elements.
+
+<a href='/' class='link'>Home</a>
+
+<Clock time='12:49' period='AM' />
+<Header>You can have text between tags.</Header>
+
+<Layout>
+  <h1>You can also have</h1>
+  <p>elements between tags</p>
+</Layout>
+
+//
+function Header (props) {
+  return <h1 className="header">{props.children}</h1>
+}
+
+function Layout (props) {
+  return (
+    <div className="layout">
+      <Sidebar />
+      {props.children}
+      <Footer />
+    </div>
+  )
+}
+Because of this, it's common to utilize children to create Layout type components that encapsulate styling and logic, but leave the content to the consumer of the component.
+
+A common example of this is a Modal component.

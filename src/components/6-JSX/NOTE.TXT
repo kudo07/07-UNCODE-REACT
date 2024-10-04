@@ -1,0 +1,111 @@
+REACT COMPONENT IS A FUNCTION THAT RETURNS THE DESCRIPTION OF SOME UI
+UNFORTUNATELY AS YOU CAN SEE THAT WONT WORK WHEN THE JS INTRPRETER RUNS THE CODE BECAUSE OF asi AUTOMATIC SEMICOLON INSERTION IT WILL INSERT A SEMICOLON RIGHT AFTER OUR RETURN STATEMENT ENDING THE FUNCTION AND RETURN
+STATEMEMNT ENDING THE FUNCTION AND RETURN NOTHING LIKE this 
+
+export default function WhatIsJSX () {
+  return;
+    // <main>
+    //   <h1>This is JSX</h1>
+    //   <h2>JSX <i>looks</i> like HTML</h2>
+    //   <h4>(but it's not)</h4>
+    //   <p>
+    //     JSX is inspired by HTML and allows you to
+    //     write HTML-ish looking syntax inside your
+    //     React Components.
+    //   </p>
+    // </main>
+}
+
+THE STANDARD WAY TO FIX THIS IS TO WRAP UOUE JSX INSIDE OF PARAMS() WHICH ALLOWS US TO HAVE OUT JSX INDENTES AS YOU;D WHILE AVAOIDING ASI ISSUES
+export default function WhatIsJSX () {
+  return (
+    <main>
+      <h1>This is JSX</h1>
+      <h2>JSX <i>looks</i> like HTML</h2>
+      <h4>(but it's not)</h4>
+      <p>
+        JSX is inspired by HTML and allows you to
+        write HTML-ish looking syntax inside your
+        React Components.
+      </p>
+    </main>
+  )
+}
+WHENEVER YOU WANT TO USE AN EXPRESSION SOMETHING THAT PRODUCES A VALUE IN JSX YOU NEED TO WRAP THE EXPRESSION IN SINGLE CURLY BRACES . {}
+function Welcome {
+  const name = 'Tyler'
+
+  return (
+    <div>
+      <h1>Hello, {name}</h1>
+      <p>
+        Today is {new Date().toLocaleDateString()}
+      </p>
+      <p>What is 2 + 2? {2 + 2}</p>
+    </div>
+  )
+}
+
+IF YOU WANT A REACT COMPONENT TO SHOW NOTHING AS SOMETIMES IS THE CASE WHEN DATA IS STILL LOADING RETURN NULL FROM YOUR COMPONENT 
+if(isLoading()===true){
+    return null 
+}
+return (
+    <main>
+        <h1>This is JSX</h1>
+        <h2>JSX <i>looks</i> like HTML</h2>
+    </main>
+
+)
+CONDITIONAL RENDERING
+
+function Dashboard () {
+  const authed = isAuthed()
+
+  if (authed === true) {
+    return <h1>Welcome back!</h1>
+  } else {
+    return <h1>Login to see your dashboard</h1>
+  }
+}
+TERNARU OPERATOR
+function Dashboard () {
+  return isAuthed() === true
+    ? <h1>Welcome back!</h1>
+    : <h1>Login to see your dashboard</h1>
+}
+
+const tweets = [
+  {
+    id: 1,
+    stars: 13,
+    text: 'Turns out git reset --hard HEAD^ was a terrible idea',
+  },
+  {
+    id: 3,
+    stars: 51,
+    text: "Clean code is subjective. Optimize for deletion",
+  },
+  {
+    id: 4,
+    stars: 19,
+    text: "What even is a jQuery?",
+  },
+]
+
+const stars = tweets.map((tweet) =>
+  tweet.stars
+) // [13,51,19]
+
+//
+import tweets from "./tweets"
+
+export default function Tweets () {
+  return (
+    <ul id="tweets">
+      {tweets.map((tweet) => (
+        <li>{tweet.text}</li>
+      ))}
+    </ul>
+  )
+}

@@ -1,0 +1,16 @@
+react is the declarativeness of the html with the features set of javascript but what dowa that actually look like a javascript
+<aside>
+  <h2>Authors</h2>
+  <ul>
+    <li>Tyler McGinnis</li>
+    <li>Ben Adam</li>
+    <li>Lynn Fisher</li>
+  </ul>
+</aside>
+
+A function is considered pure if it contains no side effects and if given the same input , it always return the same output value
+by embaracinng and striving to keep your functions pure, you'll naturally increase the predictability f your program while minimising the amount of bugs it has to have
+
+for the reason react embraces pure functions and as a rule you need to make sure your components are always pure 
+
+we'll learn all about strategies for this later on in the course but as a sneak peek, just know that any side effects your component has should be wrapped inside of event handlers
